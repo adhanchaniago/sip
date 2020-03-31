@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html style="height: auto; min-height: 100%;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminBJM</title>
+  <link rel="shortcut icon" href="http://192.168.3.3:81/adminPJM/assets/img/logo.png">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+   <link rel="stylesheet" href="AdminBJM_files/dataTables.css">
+  
+  <link rel="stylesheet" href="AdminBJM_files/bootstrap.css">
+  <link rel="stylesheet" href="AdminBJM_files/bootstrap_002.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="AdminBJM_files/font-awesome.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="AdminBJM_files/ionicons.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="AdminBJM_files/AdminLTE.css">
+  <link rel="stylesheet" href="AdminBJM_files/sweetalert.css">
+  
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="AdminBJM_files/_all-skins.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="AdminBJM_files/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="AdminBJM_files/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="AdminBJM_files/bootstrap-datepicker.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="AdminBJM_files/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="AdminBJM_files/bootstrap3-wysihtml5.css">
+   <link rel="stylesheet" href="AdminBJM_files/jquery.css">
+  <link rel="stylesheet" href="AdminBJM_files/font.css">
+<script>
+$(document).ready(function() {
+var div = $('#ok');
+var start = $(div).offset().top;
+$.event.add(window, "scroll", function() {
+var p = $(window).scrollTop();
+$(div).css('position',((p)>start) ? 'fixed' : 'static');
+$(div).css('top',((p)>start) ? '0px' : '');
+});
+});
+</script><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;box-sizing: content-box;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+
+<body class="skin-blue sidebar-mini layout-top-nav" style="overflow: auto; width: 1366px; height: auto; min-height: 100%;" onload="startTime()">
+<div class="wrapper " style="height: auto; min-height: 100%;">
+  <header class="main-header  ">
+    <nav class="navbar navbar-static-top ">
+	 <div class="container">
+     <div class="navbar-header">
+          <a href="http://192.168.3.3:81/adminPJM/welcome" class="navbar-brand" id="ok" style="margin-top: 4px;"><b>BJM POIN OF SALE</b></a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+		<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+		<ul class="nav navbar-nav" style="margin-top: 4px;">
+						 <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <font color="#ffffff"> <i class="fa fa-database"></i>  Master Barang <span class="caret"></span> </font></a>
+              <ul class="dropdown-menu" role="menu">
+               
+               <li><a href="http://192.168.3.3:81/adminPJM/Barang/input_k_barang"><i class="fa fa-cube"></i>Kategori Barang</a></li>
+               <li><a href="http://192.168.3.3:81/adminPJM/Satuan/input_satuan"><i class="fa fa-cube"></i>Satuan</a></li>
+               <li><a href="http://192.168.3.3:81/adminPJM/Barang/view_barang"><i class="fa fa-cube"></i>Barang</a></li>
+              </ul>
+            </li>
+						
+			 <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <font color="#ffffff"> <i class="fa fa-database"></i>  Master Data <span class="caret"></span></font></a>
+              <ul class="dropdown-menu" role="menu">
+               
+               <li><a href="http://192.168.3.3:81/adminPJM/Kategori/input_kategori"><i class="fa  fa-user-plus"></i>Kategori Pelanggan</a></li>
+               <li><a href="http://192.168.3.3:81/adminPJM/Pelanggan/input_pelanggan"><i class="fa fa-user-plus"></i>Pelanggan</a></li>
+               <li><a href="http://192.168.3.3:81/adminPJM/Supplier/input_supplier"><i class="fa fa-user-plus"></i>Supplier</a></li>
+              </ul>
+            </li>
+			
+						<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <font color="#ffffff">  <i class="fa fa-shopping-cart"></i>  Transaksi <span class="caret"></span></font></a>
+              <ul class="dropdown-menu" role="menu">
+				<li><a href="http://192.168.3.3:81/adminPJM/Penjualan/view_penjualan"><i class="fa  fa-cart-arrow-down"></i> Penjualan</a></li>
+				<li><a href="http://192.168.3.3:81/adminPJM/Pembelian/view_pembelian"><i class="fa  fa-cart-arrow-down"></i> Pembelian</a></li>
+				<li><a href="http://192.168.3.3:81/adminPJM/Surat_jalan/view_surat_jalan"><i class="fa fa-truck"></i> Surat Jalan</a></li>
+				<li><a href="http://192.168.3.3:81/adminPJM/Penerimaan/view_penerimaan"><i class="fa fa-money"></i> Penerimaan</a></li>          
+				<li><a href="http://192.168.3.3:81/adminPJM/Pembayaran/view_pembayaran"><i class="fa fa-money"></i> Pembayaran</a></li>          
+				<li><a href="http://192.168.3.3:81/adminPJM/Penjualan/view_retur"><i class="fa fa-cart-arrow-down"></i> Retur Penjualan</a></li>          
+              </ul>
+            </li>
+						
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">  <font color="#ffffff"> <i class="fa fa-bar-chart-o"></i>  Laporan <span class="caret"></span></font></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="http://192.168.3.3:81/adminPJM/Laporan/Tanda_Terima"><i class="fa  fa-file"></i> Saldo</a></li>
+                  <li><a href="http://192.168.3.3:81/adminPJM/Laporan/lap_transaksib"><i class="fa  fa-file"></i> Transaksi</a></li>
+				                    <li><a href="http://192.168.3.3:81/adminPJM/Acc/view_acc"><i class="fa  fa-file"></i> Acc Penerimaan</a></li>
+                  <li><a href="http://192.168.3.3:81/adminPJM/Acc_pembayaran/view_accpembayaran"><i class="fa  fa-file"></i> Acc Pembayaran</a></li>
+				                </ul>
+            </li>		
+									
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="#ffffff"> <i class="fa fa-gears"></i>  Tools <span class="caret"></span></font></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="http://192.168.3.3:81/adminPJM/User/view_user"><i class="fa  fa-users"></i> Users</a></li>
+              </ul>
+            </li>
+			          </ul>
+	</div>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 3px;margin-bottom: -10px;">
+			              <img style="width:24px;height: 24px;" src="AdminBJM_files/ADM.jpg" class="img-circle">
+              <font color="#ffffff"> <span class="hidden-xs">admin  </span></font>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header bg-navy">
+                 <img style="width:90px" src="AdminBJM_files/ADM.jpg" class="img-circle">
+                <p>
+                 <font color="#ffffff">
+                   <small>admin</small></font>
+                </p>
+              </li>
+              
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="http://192.168.3.3:81/adminPJM/Auth/logout" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+  <div class="content-wrapper " style="min-height: 577px;">
+ 
+    <section class="content active">
+		 
+
+  <link rel="stylesheet" href="AdminBJM_files/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="AdminBJM_files/bootstrap_002.css" type="text/css">
+  <link rel="stylesheet" href="AdminBJM_files/font-awesome.css">  <!-- Ionicons -->
+  <link rel="stylesheet" href="AdminBJM_files/ionicons.css">  <!-- DataTables -->
+  <link rel="stylesheet" href="AdminBJM_files/dataTables.css">
+  <link rel="stylesheet" href="AdminBJM_files/select2.css">  
+
+	
+ <div class="row ">
+	<section class="col-lg-12 connectedSortable ui-sortable">
+		<div class="box box-primary">
+				<div class="box-body">
+					<div class="col-md-7">
+					<form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+						<div class="form-group">
+								<label class="col-sm-40 control-label">No Retur</label>
+								<div class="col-sm-37">
+										<input type="text" name="no_retur" id="" value="19R-I0014" autocomplete="off" readonly="readonly" class="form-control" placeholder=" No Jual">
+								</div>
+								<label class="col-sm-40 control-label">Tanggal</label>
+								<div class="col-sm-37">
+										<input type="text" name="tanggal" id="tanggal" value="2019-01-11" onfocus="startCalc();" onblur="stopCalc();" autocomplete="off" readonly="readonly" class="form-control" placeholder=" Tanggal Invoice">
+										
+								</div>
+								<label class="col-sm-40 control-label">Nama Pelanggan</label>
+								<div class="col-sm-37" style="width:130px;">
+										<select name="id_pelanggan" id="id_pelanggan" class="form-control select2 select2-hidden-accessible" style="width: 99%;" autofocus="" tabindex="-1" required="" aria-hidden="true"> 
+										 <option value="" selected="selected">Pilih Pelanggan</option>
+										  										  <option value="AMN" data-kategori="WALK1">AMIN</option>
+										  										  <option value="ALI" data-kategori="AGN">ALIEN</option>
+										  										  <option value="HRU" data-kategori="SLS">HERU</option>
+										  										  <option value="ADY" data-kategori="TB">SURYADI</option>
+										  										  <option value="RZL" data-kategori="TK">RIZAL</option>
+										  										  <option value="SAR" data-kategori="WALK">SARDINI</option>
+										  									</select><span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 99%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="1" aria-labelledby="select2-id_pelanggan-container"><span class="select2-selection__rendered" id="select2-id_pelanggan-container" title="Pilih Pelanggan">Pilih Pelanggan</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+									</div>
+						
+							</div>
+							<div class="form-group">
+							<label class="col-sm-40 control-label">No Invoice</label>
+								<div class="col-sm-37">
+										<input type="text" name="" id="no_jl" autocomplete="off" class="form-control" placeholder=" No Jual">
+										<input type="hidden" name="no_jual" id="no_jual" autocomplete="off" class="form-control" placeholder=" No Jual">
+										
+								</div>
+								<label class="col-sm-40 control-label">Kategori</label>
+								<div class="col-sm-37">
+										<input type="text" name="id_k_pelanggan" id="id_k_pelanggan" autocomplete="off" readonly="readonly" class="form-control" placeholder=" Kategori">
+								</div>
+							</div>
+							
+							
+							</form></div>							
+								
+								<div class="col-md-4">
+								 <!-- Asli $hasil5 -->
+									
+								<div class="col-md-11  tampildata">
+								<div class="info-box bg-aqua" style="min-height:105px">
+								<span class="info-box-icon" style="height:105px; padding:4px 0; width:50px"><i class="fa fa-shopping-cart"></i></span>
+									<div class="info-box-content">
+									 <span class="info-box-number" style=" font-size:23px; padding:36px 0"><div id="grandtotal"></div></span>
+									</div>
+								</div>
+								</div>
+								</div>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+								<hr>
+								<div class="col-md-9" style="margin-top: -41px;">
+								<div class="col-sm-30" style="width:320px">
+									<input type="text" name="namabarang" id="nama_barang" class="form-control" placeholder="Nama Barang (&lt;-)" tabindex="4" autocomplete="off">
+								</div>
+								<div class="col-sm-30" style="width:230px">
+									<input type="hidden" name="idbarang" id="id_barang" class="form-control" placeholder="Barang" tabindex="5">
+								</div>
+								<div class="col-sm-35" style="width:80px">
+									<input type="text" name="stok" id="stok" readonly="readonly" autocomplete="off" class="form-control" placeholder="Stok ">
+								
+								</div>
+								<div class="col-sm-35" style="width:80px">
+									<input type="text" name="qtybes" id="Q_B" autocomplete="off" class="form-control" placeholder="Qty " tabindex="6">
+								
+								</div>
+								<div class="col-sm-35" style="width:80px">
+									<input type="text" name="satuanbes" id="S_B" readonly="readonly" autocomplete="off" class="form-control" placeholder="Satuan">
+								
+								</div>
+								<div class="col-sm-35">
+									<input type="hidden" name="qib" id="Q_IB" readonly="readonly" autocomplete="off" class="form-control" placeholder="Q_IB">
+								
+								</div>
+								<div class="col-sm-30" style="width:120px">
+									
+									<input type="text" name="hargabeli" id="modal1" autocomplete="off" class="form-control" placeholder="Harga Jual" tabindex="8">
+								
+								</div>
+								<div class="col-sm-30" style="width:120px">
+								<input type="text" name="modal" id="modal" readonly="readonly" autocomplete="off" class="form-control" placeholder="Modal">
+								</div>
+								<div class="col-sm-35" style="width:80px">
+									<input type="text" name="disc" id="disc" autocomplete="off" class="form-control" placeholder="Disc 1" tabindex="9">
+								
+								</div>
+								<div class="col-sm-35" style="width:80px">
+									<input type="text" name="disc1" id="disc1" autocomplete="off" class="form-control" placeholder="Disc 2" tabindex="10">
+									
+								</div>
+								<div class="col-sm-31">
+									<button type="submit" class="btn btn-sm btn-primary" name="btn_simpan" id="btn_simpan" tabindex="11">OK</button>
+															
+								</div>
+								
+						   <table id="#" class="table table-condensed">
+						    <thead bgcolor="#99FF99">
+				                <tr>
+								<th width="5px">No</th>
+								<th width="330px">Nama Barang</th>
+								<th width="70px">Qty</th>
+								<th width="70px">Satuan</th>
+								<th width="100px">Harga Jual</th>
+								<th width="50px">% 1</th>
+								<th width="50px">% 2</th>
+								<th width="130px">Sub Total</th>
+								<th width="50px">A</th>
+								</tr>
+								</thead>
+								<tbody id="tampiltmp">									 <!-- Asli $hasil5 -->
+				
+		
+		
+
+                
+              </tbody>
+							</table>
+						   <div class="form-group">
+								<label class="col-sm-29 control-label" style="margin-top: 8px;">Keterangan</label>
+								<div class="col-sm-33" style="width:750px">
+										<input type="text" name="keterangan" id="ket" autocomplete="off" autofocus="" class="form-control" placeholder="Keterangan (F2)" onkeyup=" this.value=this.value.toUpperCase();">
+								</div>
+							</div>
+								
+							</div>
+							<div class="col-md-3" style="margin-top: -9px;">
+							<div class="col-sm-41 tampildata1">									 <!-- Asli $hasil5 -->
+																	<div class="form-group">
+								<label class="col-sm-32 control-label">Potongan Harga</label>
+								<div class="col-sm-33">
+										<input type="text" id="potongan" name="" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga" tabindex="17" required="">
+								</div>
+							</div>
+							 <!--<div class="form-group">
+								<label class="col-sm-32 control-label">DPP</label>
+								<div class="col-sm-33">
+										<span class="form-control" readonly><div id="dpp"></div></span>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								
+								<label class="col-sm-32 control-label">PPN</label>
+								<div class="col-sm-33">
+								<span class="form-control" readonly><div id="ppn"></div></span></div>
+							</div>-->
+							<div class="form-group">
+								<div class="col-sm-38">
+										<input type="text" name="" id="ongkir1" autocomplete="off" class="form-control" onkeyup="copytextbox3(); this.value=this.value.toUpperCase();" tabindex="17" placeholder="Biaya Lain">
+										<input type="hidden" name="" id="ongkir2" autocomplete="off" class="form-control" onkeyup="copytextbox4(); this.value=this.value.toUpperCase();" tabindex="19">										
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-33">
+										<input type="text" name="" id="nominal1" autocomplete="off" class="form-control" onkeyup="copytextbox();" tabindex="18" placeholder="Nominal">
+										<input type="hidden" name="" id="nominal2" autocomplete="off" class="form-control" onkeyup="copytextbox2();" tabindex="20">0										
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-32 control-label">Total</label>
+								<div class="col-sm-33">
+										<span rows="1" class="form-control" name="" style="height: 34px;" readonly=""><div id="total_bayar"></div></span>
+										<input type="hidden" name="" id="tb" readonly="readonly" autocomplete="off" class="form-control" placeholder="Total Bayar ">
+										<input type="hidden" name="" id="total" readonly="readonly" value="0" autocomplete="off" class="form-control" placeholder="Total Bayar ">
+										<input type="hidden" name="" id="belanja" readonly="readonly" value="0" autocomplete="off" class="form-control" placeholder="Total Bayar ">
+										<input type="hidden" name="" id="retur" readonly="readonly" value="0" autocomplete="off" class="form-control" placeholder="Total Bayar ">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-32 control-label">Cash</label>
+								<div class="col-sm-33">
+										<input type="text" name="" id="cash" onkeypress="return check_int(event)" autocomplete="off" class="form-control" placeholder="Cash " tabindex="21">
+									
+								</div>
+							</div>
+							<div class="form-group"> 
+								<label class="col-sm-32 control-label">Debet</label>
+								<div class="col-sm-33" style="width:107px">
+										<input type="text" name="" id="debet" autocomplete="off" class="form-control" placeholder="Debet " onkeyup="copytextbox6();" tabindex="22">
+								</div>
+								<div class="col-sm-33" style="width:74px">
+										<input type="text" name="" id="bank1" autocomplete="off" class="form-control" placeholder="Bank " onkeyup="copytextbox7(); this.value=this.value.toUpperCase();" tabindex="23">	
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-32 control-label">Transfer</label>
+								<div class="col-sm-33" style="width:107px">
+										<input type="text" name="" id="transfer" autocomplete="off" class="form-control" placeholder="Transfer " onkeyup="copytextbox8();" tabindex="24">
+								</div>
+								<div class="col-sm-33" style="width:74px">
+											<input type="text" name="" id="bank2" autocomplete="off" class="form-control" placeholder="Bank " onkeyup="copytextbox9(); this.value=this.value.toUpperCase();" tabindex="25">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-32 control-label">Giro</label>
+								<div class="col-sm-33">
+										<input type="text" name="" id="giro" autocomplete="off" class="form-control" placeholder="Giro " onkeyup="copytextbox11();" tabindex="26">
+								</div>
+							</div>
+							
+							<!--<div class="form-group">
+								<label class="col-sm-32 control-label">DP</label>
+								<div class="col-sm-33">
+										<input type="text" name=""  id="dp" autocomplete="off" class="form-control" placeholder = "Down Payment ">
+								</div>
+							</div>-->
+							<div class="form-group">
+								<label class="col-sm-32 control-label">Ket Giro</label>
+								<div class="col-sm-33">
+										<textarea type="text" name="" id="ket_giro" autocomplete="off" class="form-control" rows="1" placeholder="Ket Giro " onkeyup="copytextbox12();" tabindex="27"></textarea>
+										
+									<div class="col-sm-33">
+								<br>
+									</div>
+									</div>
+								</div>
+							
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--<script>
+			function copytextbox10() {
+			document.getElementById('tot').value = document.getElementById('total_bayar').value;
+			}
+		</script>-->
+		
+		
+		
+		
+		
+
+
+
+			
+		
+</div>
+										<textarea style="display:none;" rows="1" class="form-control" name="total_belanja" id="total_belanja" readonly="readonly"></textarea>
+										<textarea style="display:none;" rows="1" class="form-control" name="total_retur" id="total_retur" readonly="readonly"></textarea>
+										<textarea style="display:none;" rows="1" class="form-control" name="total" id="tot" readonly="readonly" requered=""></textarea>
+										<textarea style="display:none;" rows="1" class="form-control" name="kembali" id="kem" readonly="readonly"></textarea>
+										<textarea style="display:none;" rows="1" class="form-control" name="sisa" id="sis" readonly="readonly"></textarea>
+										<textarea style="display:none;" rows="1" class="form-control" name="sisa2" id="siso" readonly="readonly"></textarea>
+										<input type="hidden" id="potongan2" name="potongan" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga" required="">
+										<input type="hidden" id="nomin" name="nominal1" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="nom" name="nominal2" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="ong1" name="ongkir1" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="ong2" name="ongkir2" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="cash2" name="cash" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="deb" name="debet" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="ban1" name="bank1" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="trans" name="transfer" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="ban2" name="bank2" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="gr" name="giro" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<input type="hidden" id="keg" name="ket_giro" autocomplete="off" autofocus="" class="form-control" placeholder="Potongan Harga">
+										<div class="form-group">
+										<table style="width:1000px; margin-left:34px">
+										<tbody><tr>
+										<td>
+																				<input type="submit" name="submit2" id="simpan2" value="Cetak Thermal" class="btn btn-sm btn-primary" tabindex="29">
+																				<input style="display:none;" type="submit" name="submit" id="btn_simpan1" value="Simpan" class="btn btn-sm btn-primary" tabindex="30">
+										<a href="http://192.168.3.3:81/adminPJM/Penjualan/riset" class="btn btn-sm btn-danger" tabindex="31">Cancel</a>
+										
+										</td>
+										</tr>
+										</tbody></table>
+										</div>
+										</div>
+										
+						</div>
+				
+			</div>
+		</section></div>
+		</section>
+        </div>
+
+  <script src="AdminBJM_files/jquery-1.js"></script>
+  <script src="AdminBJM_files/bootstrap.js"></script>
+  <script src="AdminBJM_files/jquery_007.js"></script>
+  <script src="AdminBJM_files/dataTables.js"></script>		
+  <script src="AdminBJM_files/select2.js"></script>
+  <script src="AdminBJM_files/jquery_002.js"></script>
+  <script src="AdminBJM_files/number.js"></script>
+  
+     <script>
+    var site = "http://192.168.3.3:81/adminPJM/";
+    $(function(){
+        $('#nama_barang').autocomplete({
+            serviceUrl: site+'Penjualan/get_data',
+			onSelect: function (suggestion) {
+                    $('#id_barang').val(''+suggestion.id_barang); 
+                    $('#stok').val(''+suggestion.stok); 
+                    $('#S_B').val(''+suggestion.satuan_besar); 
+                    $('#Q_IB').val(''+suggestion.qty_b); 
+                    $('#modal').val(''+suggestion.modal);
+					if(id_k_pelanggan == "WALK1"){
+					$('#modal1').val(''+suggestion.harga_jual);
+					}if(id_k_pelanggan == "WALK"){
+					$('#modal1').val(''+suggestion.walk);
+					}if(id_k_pelanggan == "TK"){
+					$('#modal1').val(''+suggestion.tk);
+					}if(id_k_pelanggan == "TB"){
+					$('#modal1').val(''+suggestion.tb);
+					}if(id_k_pelanggan == "SLS"){
+					$('#modal1').val(''+suggestion.sls);
+					}if(id_k_pelanggan == 'AGN'){
+					$('#modal1').val(''+suggestion.agn);
+					}
+                }
+				
+        });
+    });
+	</script>
+	<script>
+    var site = "http://192.168.3.3:81/adminPJM/";
+    $(function(){
+        $('#no_jl').autocomplete({
+            serviceUrl: site+'Penjualan/get',
+			onSelect: function (suggestion) {
+                    $('#no_jual').val(''+suggestion.no_jual); 
+                    $('#id_pelanggann').val(''+suggestion.id_pelanggan); 
+                    
+                }
+        });
+    });
+	</script>
+<script type="text/javascript">
+ $('#id_pelanggan').change(function(){
+    var
+    value 			= $(this).val(),
+    $obj 			= $('#id_pelanggan option[value="'+value+'"]'),
+    no_pelanggan	= $obj.attr('data-nopel');
+    no_ref			= $obj.attr('data-noref');
+    no_sjln			= $obj.attr('data-nosjln');
+    id_k_pelanggan	= $obj.attr('data-kategori');
+    keterangan 		= $obj.attr('data-keterangan');
+	
+    id_sales 		= $obj.attr('data-sales');
+    max_hutang		= $obj.attr('data-max');
+    max_hutang1		= $obj.attr('data-max1');
+    jatuh_tempo		= $obj.attr('data-jatuhtempo');
+    jatuh_tempoan		= $obj.attr('data-jatuhtempoan');
+	
+    $('#no_pelanggan').val(no_pelanggan);
+    $('#no_ref').val(no_ref);
+    $('#no_sjln').val(no_sjln);
+    $('#id_k_pelanggan').val(id_k_pelanggan);
+    $('#keterangan').val(keterangan);
+    $('#id_sales').val(id_sales);
+    $('#max_hutang').val(max_hutang);
+    $('#max_hutang1').val(max_hutang1);
+    $('#jatuh_tempo').val(jatuh_tempo);
+    $('#jatuh_tempoan').val(jatuh_tempoan);
+   
+    
+});
+</script>
+<script type="text/javascript">
+	tampiltmp();
+			
+  $('select').select2();
+	function tampiltmp(){			
+		
+			$("#tampiltmp").load("http://192.168.3.3:81/adminPJM/Penjualan/retur_tmp");
+			$('.tampildata1').load("http://192.168.3.3:81/adminPJM/Penjualan/view_detail_barang4");			
+		}
+	   $('#btn_simpan').on('click',function(){
+            var namabarang		=$('#nama_barang').val();
+            var idbarang		=$('#id_barang').val();
+            var qtybes			=$('#Q_B').val();
+            //var qtykec			=$('#Q_K').val();
+            var satuanbes		=$('#S_B').val();
+            //var satuankec		=$('#S_K').val();
+            var hargabeli		=$('#modal1').val();
+            var stok			=$('#stok').val();
+           // var qik				=$('#Q_IK').val();
+            var modal			=$('#modal').val();
+            var disc			=$('#disc').val();
+            var disc1			=$('#disc1').val();
+            $.ajax({
+                type : "POST",
+                url  : "http://192.168.3.3:81/adminPJM/Penjualan/input_detail_retur1",
+                data : {idbarang:idbarang,qtybes:qtybes,satuanbes:satuanbes,modal:modal,hargabeli:hargabeli,disc:disc,disc1:disc1}, //dihapus,disc2:disc2
+                success: function(data){
+                    $('[name="idbarang"]').val("");
+                    $('[name="namabarang"]').val("");
+                    $('[name="qtybes"]').val("");
+                   // $('[name="qtykec"]').val("");
+                    $('[name="satuanbes"]').val("");
+                    //$('[name="satuankec"]').val("");
+                    $('[name="hargabeli"]').val("");
+                    $('[name="qib"]').val("");
+                    //$('[name="qik"]').val("");
+                    $('[name="modal"]').val("");
+                    $('[name="disc"]').val("");
+                    $('[name="disc1"]').val("");
+                    $('[name="stok"]').val("");
+                    
+					tampiltmp();
+					$('.tampildata').load("http://192.168.3.3:81/adminPJM/Penjualan/view_total_retur");
+					
+                }
+            });
+			
+					$('.tampildata1').load("http://192.168.3.3:81/adminPJM/Penjualan/view_detail_barang4");
+            return false;
+        });
+	
+		
+</script>
+<script>
+$('#btn_simpan1').on('click',function(){
+			$('.tampildata3').load("http://192.168.3.3:81/adminPJM/Penjualan/input_penjualan");
+		});
+</script>
+
+
+<script>
+							
+	 $('body').on('click', '.hapus-barang', function(e){
+      e.preventDefault();
+
+      var user = $(this).attr('data-user');
+      var id_barang = $(this).attr('data-idbarang');
+      var _this = $(this);
+	  
+          $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url : "http://192.168.3.3:81/adminPJM/Penjualan/destroy4/"+'/'+user+'/'+id_barang,
+            success: function(data){
+			  tampiltmp();
+			  $('.tampildata1').load("http://192.168.3.3:81/adminPJM/Penjualan/view_detail_barang4");
+			  $('.tampildata').load("http://192.168.3.3:81/adminPJM/Penjualan/view_total_retur");
+            }
+			
+          });
+    });	
+</script>
+<script>
+document.onkeyup = function (e) {
+        var evt = window.event || e;   
+        if (evt.keyCode == 16 && evt.ctrlKey) {
+           $('#btn_simpan1').click()   
+        }
+		if (evt.keyCode == 67 && evt.ctrlKey) {
+           $('#simpan2').click()   
+        }
+		if (evt.keyCode == 88 && evt.ctrlKey) {
+           $('#simpan3').click()   
+        }
+    }
+</script>
+ <script type="text/javascript">
+$(document).on('keydown', 'body', function(e){
+	var charCode = ( e.which ) ? e.which : event.keyCode;
+
+	if(charCode == 118) //F7
+	{
+		BarisBaru();
+		return false;
+	}
+
+	if(charCode == 37) //enter
+	{
+		$('#nama_barang').focus();
+	}
+	if(charCode == 112) //panah atas
+	{
+		$('#send').focus();
+	}
+	if(charCode == 39) //panah kanan	
+	{
+		$('#potongan').focus();
+	}
+	if(charCode == 113) //panah bawah
+	{
+		$('#ket').focus();
+	}
+	if(charCode == 35) //F9
+	{
+		$('#simpan').click();
+	}
+	if(charCode == 1200) //F9
+	{
+		$('#simpan2').click();
+	}
+	if(charCode == 1210) //F9
+	{
+		$('#simpan3').click();
+	}
+	if(charCode == 45) //F9
+	{
+		$('#id_pelanggan').focus();
+	}
+	if(charCode == 33) //F9
+	{
+		$('#nm_barang').focus();
+	}
+	if(charCode == 34) //F9
+	{
+		$('#ket_retur').focus();
+	}
+});
+
+  </script>
+    <script>
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+document.getElementById('txt1').innerHTML=h+":"+m+":"+s;
+t=setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+<script>
+ 
+// memformat angka ribuan
+function formatAngka(angka) {
+ if (typeof(angka) != 'string') angka = angka.toString();
+ var reg = new RegExp('([0-9]+)([0-9]{3})');
+ while(reg.test(angka)) angka = angka.replace(reg, '$1.$2');
+ return angka;
+}
+ 
+// tambah event keypress untuk input bayar
+$('#modal1').on('keypress', function(e) {
+ var c = e.keyCode || e.charCode;
+ switch (c) {
+  case 8: case 9: case 27: case 13: return;
+  case 65:
+   if (e.ctrlKey === true) return;
+ }
+ if (c < 48 || c > 57) e.preventDefault();
+}).on('keyup', function() {
+ var inp = $(this).val().replace(/\./g, '');
+  
+ $(this).val(formatAngka(inp));
+  
+});
+</script>
+<script>
+ 
+// memformat angka ribuan
+function formatAngka(angka) {
+ if (typeof(angka) != 'string') angka = angka.toString();
+ var reg = new RegExp('([0-9]+)([0-9]{3})');
+ while(reg.test(angka)) angka = angka.replace(reg, '$1.$2');
+ return angka;
+}
+ 
+// tambah event keypress untuk input bayar
+$('#harga_jual').on('keypress', function(e) {
+ var c = e.keyCode || e.charCode;
+ switch (c) {
+  case 8: case 9: case 27: case 13: return;
+  case 65:
+   if (e.ctrlKey === true) return;
+ }
+ if (c < 48 || c > 57) e.preventDefault();
+}).on('keyup', function() {
+ var inp = $(this).val().replace(/\./g, '');
+  
+ $(this).val(formatAngka(inp));
+  
+});
+</script>
+	<script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+		}
+    $(this).val(nama);
+	</script>
+<script type="text/javascript">
+function checkForm(){
+	var qtyb = document.getElementById("sis").value;
+ 
+	f(qtyb == 0){
+		alert("Nama Belum Di pilih");
+		return false;
+	} else  {
+		return false;
+	}
+}
+</script>
+<script type="text/javascript">
+function confirm() {
+var msg;
+msg= "Apakah Mang Kemed Yakin Akan Menghapus Data ? " ;
+var agree=confirm(msg);
+if (agree)
+return true ;
+else
+return false ;
+}</script>
+<script>
+  
+    $("#example").DataTable({
+     
+      
+      searching   : true,
+      bInfo : false,
+      bLengthChange : false,
+      bPaginate : false,
+      ordering	:	false
+      
+      
+    });
+   $("#example2").DataTable({
+     
+      
+      searching   : true,
+      bInfo : false,
+      bLengthChange : false,
+      bPaginate : false
+      
+      
+      
+    });
+   
+  
+</script>
+    
+	
+  </div>
+
+
+
+
+
+
+<script src="AdminBJM_files/jquery_005.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="AdminBJM_files/jquery-ui.js"></script>
+
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+<!-- Bootstrap 3.3.7 -->
+<script src="AdminBJM_files/bootstrap.js"></script>
+<!-- Morris.js charts -->
+<script src="AdminBJM_files/raphael.js"></script>
+<script src="AdminBJM_files/morris.js"></script>
+<!-- Sparkline -->
+<script src="AdminBJM_files/jquery_004.js"></script>
+<!-- jvectormap -->
+<script src="AdminBJM_files/jquery-jvectormap-1.js"></script>
+<script src="AdminBJM_files/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="AdminBJM_files/jquery_003.js"></script>
+<!-- daterangepicker -->
+<script src="AdminBJM_files/moment.js"></script>
+<script src="AdminBJM_files/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="AdminBJM_files/bootstrap-datepicker.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="AdminBJM_files/bootstrap3-wysihtml5.js"></script>
+<!-- Slimscroll -->
+<script src="AdminBJM_files/jquery.js"></script>
+<!-- FastClick -->
+<script src="AdminBJM_files/fastclick.js"></script>
+
+ <script src="AdminBJM_files/jquery_006.js"></script>
+ <script src="AdminBJM_files/sweetalert.js"></script>
+ <script src="AdminBJM_files/sweetalert-dev.js"></script>
+	
+<!-- AdminLTE App -->
+<script src="AdminBJM_files/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="AdminBJM_files/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="AdminBJM_files/demo.js"></script>
+
+<script src="AdminBJM_files/jquery_007.js"></script>
+<script src="AdminBJM_files/dataTables.js"></script>
+
+<div class="autocomplete-suggestions" style="position: absolute; display: none; width: 320px; top: 167.583px; left: 18px; max-height: 300px; z-index: 9999;"></div><div class="autocomplete-suggestions" style="position: absolute; display: none; width: 131.35px; top: 124px; left: 143.9px; max-height: 300px; z-index: 9999;"></div><div class="jvectormap-label"></div></body><!-- ./wrapper --><!-- jQuery 3 --></html>

@@ -1,0 +1,352 @@
+<html>
+<tbody> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>css/font5.css">
+	<tbody>
+	<div class = "row">
+	<section class = "col-lg-6" connectedSortable id = "select2">
+	<div class="box box-primary box-solid">
+		<div class="box-header">
+			<h3 class="box-title"><i class="fa fa-tag"></i> Hak Akses <?php echo $d['level'];?></h3>
+		</div>
+					<form class="form-horizontal" class="form-vertical" method="POST" action="" enctype = "multipart/form-data">
+						<div class="box-body" style = "width:800px;">
+							<div class="form-group">
+								
+							<div class="col-sm-5">
+									<input name="level" value="<?php echo $d['level']; ?>" readonly type="hidden" placeholder="Kode User" class="form-control">
+							</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label"></label>
+								<div class="col-sm-13">
+								<table>
+								<tr>
+								<td align = "center" colspan = "19"><h5><b>MENU</b></h5></td>
+								</tr>
+								<tr>
+								<td><b>Master Barang</b></td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="m_barang" value="<?php echo $d['m_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td><b>Master Data</b></td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="m_data" value="<?php echo $d['m_data'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td><b>Data Barang</b></td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="d_barang" value="<?php echo $d['d_barang'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td>Kategori Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="k_barang" value="<?php echo $d['k_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Kategori Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="k_pelanggan" value="<?php echo $d['k_pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Stok</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="stok" value="<?php echo $d['stok'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td>Satuan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="satuan" value="<?php echo $d['satuan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="pelanggan" value="<?php echo $d['pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Price List</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="price_list" value="<?php echo $d['price_list'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td>Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="barang" value="<?php echo $d['barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Supplier</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="supplier" value="<?php echo $d['supplier'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td><b>Transaksi</b></td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="transaksi" value="<?php echo $d['transaksi'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td><b>Hutang / Piutang</b></td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="hutang_piutang" value="<?php echo $d['hutang_piutang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td><b>Laporan</b></td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="laporan" value="<?php echo $d['laporan'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td>Penjualan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="penjualan" value="<?php echo $d['penjualan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Pembayaran</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="pembayaran" value="<?php echo $d['pembayaran'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Tanda Terima</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="l_tanda_terima" value="<?php echo $d['l_tanda_terima'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td>Pembelian</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="pembelian" value="<?php echo $d['pembelian'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Penerimaan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="penerimaan" value="<?php echo $d['penerimaan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Lap Saldo Supplier</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="l_saldo_supplier" value="<?php echo $d['l_saldo_supplier'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>Surat Jalan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="surat_jalan" value="<?php echo $d['surat_jalan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Penerimaan Non Data</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="penerimaan_sample" value="<?php echo $d['penerimaan_sample'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Lap Saldo Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="l_saldo_pelanggan" value="<?php echo $d['l_saldo_pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td>Purchase Order</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="purchase_order" value="<?php echo $d['purchase_order'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Hadiah</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="hadiah" value="<?php echo $d['hadiah'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Lap Transaksi Pembelian</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="l_transaksi_pembelian" value="<?php echo $d['l_transaksi_pembelian'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>Penjualan Non Data</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="penjualan_sample" value="<?php echo $d['penjualan_sample'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Barang Hadiah</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="barang_hadiah" value="<?php echo $d['barang_hadiah'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Lap Transaksi Penjualan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px ; padding-left: 5px;" name="l_transaksi_penjualan" value="<?php echo $d['l_transaksi_penjualan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>Deposit</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="deposit" value="<?php echo $d['deposit'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>Pembelian Hadiah</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="pembelian_hadiah" value="<?php echo $d['pembelian_hadiah'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td> &nbsp </td>
+								<td> &nbsp </td>
+								<td> &nbsp </td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>&nbsp </td>
+								<td>&nbsp </td>
+								<td> &nbsp </td>
+								<td>&nbsp &nbsp </td>
+								<td>Pemberian Hadiah</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="pemberian_hadiah" value="<?php echo $d['pemberian_hadiah'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td> &nbsp </td>
+								<td> &nbsp </td>
+								<td> &nbsp </td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td align = "center" colspan = "19"><h5><b>I E H R</b></h5></td>
+								</tr>
+								<tr>
+								<td>I. Kategori Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_kategori_barang" value="<?php echo $d['i_kategori_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Kategori Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_kategori_pelanggan" value="<?php echo $d['i_kategori_pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Penjualan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_penjualan" value="<?php echo $d['i_penjualan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>E. Kategori Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_kategori_barang" value="<?php echo $d['e_kategori_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>E. Kategori Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_kategori_pelanggan" value="<?php echo $d['e_kategori_pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>R. Penjualan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="r_penjualan" value="<?php echo $d['r_penjualan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>I. Satuan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_satuan" value="<?php echo $d['i_satuan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_pelanggan" value="<?php echo $d['i_pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Penjualan Non Data</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_penjualan_sample" value="<?php echo $d['i_penjualan_sample'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>E. Satuan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_satuan" value="<?php echo $d['e_satuan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>E. Pelanggan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_pelanggan" value="<?php echo $d['e_pelanggan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Pembelian</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_pembelian" value="<?php echo $d['i_pembelian'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>I. Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_barang" value="<?php echo $d['i_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Supplier</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_supplier" value="<?php echo $d['i_supplier'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>E. Pembelian</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_pembelian" value="<?php echo $d['e_pembelian'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>E. Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_barang" value="<?php echo $d['e_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>E. Supplier</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_supplier" value="<?php echo $d['e_supplier'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td>R. Pembelian</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="r_pembelian" value="<?php echo $d['r_pembelian'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td>H. Barang</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="h_barang" value="<?php echo $d['h_barang'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Purchase Order</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_purchase_order" value="<?php echo $d['i_purchase_order'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td>E. Purchase Order</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_purchase_order" value="<?php echo $d['e_purchase_order'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td>I. Surat Jalan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="i_surat_jalan" value="<?php echo $d['i_surat_jalan'];?>" autocomplete="off" maxlength="1"></td>
+								<td>&nbsp &nbsp </td>
+								</tr>
+								<tr>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td></td>
+								<td>&nbsp </td>
+								<td></td>
+								<td>&nbsp &nbsp </td>
+								<td>E. Surat Jalan</td>
+								<td>&nbsp </td>
+								<td><input type="text" style = "width:20px; padding-left: 5px;" name="e_surat_jalan" value="<?php echo $d['e_surat_jalan'];?>" autocomplete="off" maxlength="1"></td>
+								</tr>
+								<tr>
+								<td align = "center" colspan = "18">--------------------------------------------------------------------------------------------------------------------------------------------------</td>
+								</tr>
+								</div>
+							</div>
+			
+						<div  class="col-sm-12">
+						<table align = "right">
+						<tr>
+						<td>
+							<input type="submit" name = "submit" value = "Update" class="btn btn-primary">
+						<a href = "<?php echo base_url();?>User/view_user" class="btn btn-sm btn-danger">Cancel</a>
+						</td>
+						</tr>
+						</table>
+						</div>
+								</table>
+						</div>	
+					</form>
+				</div>
+				</section>
+				
+		  </div>
+	</tbody>
+</html>
